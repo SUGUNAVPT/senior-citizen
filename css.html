@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Senior Citizen Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: url('background-image.jpg') no-repeat center center fixed; 
+            background-size: cover;
+        }
+        .container {
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            width: 100%;
+            text-align: center;
+        }
+        .result, .advice {
+            margin-top: 10px;
+            font-weight: bold;
+        }
+        .advice {
+            font-style: italic;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Senior Citizen Calculator</h2>
+        <form id="seniorCitizenForm">
+            <label for="name">Enter your name:</label>
+            <input type="text" id="name" name="name" required>
+            <br><br>
+            <label for="age">Enter your age:</label>
+            <input type="number" id="age" name="age" required>
+            <br><br>
+            <button type="submit">Check</button>
+        </form>
+        <div id="result" class="result"></div>
+        <div id="advice" class="advice"></div>
+    </div>
+
+    <script>
+        document.getElementById('seniorCitizenForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const name = document.getElementById('name').value;
+            const age = parseInt(document.getElementById('age').value);
+            const resultDiv = document.getElementById('result');
+            const adviceDiv = document.getElementById('advice');
+
+            if (age >= 65) {
+                resultDiv.textContent = `Hello ${name}, you are considered a senior citizen.`;
+                const yearsSinceSenior = age - 65;
+                adviceDiv.textContent = `You have been a senior citizen for ${yearsSinceSenior} years. Enjoy your golden years!`;
+            } else {
+                resultDiv.textContent = `Hello ${name}, you are not considered a senior citizen yet.`;
+                const yearsUntilSenior = 65 - age;
+                adviceDiv.textContent = `You will become a senior citizen in ${yearsUntilSenior} years. Keep thriving!`;
+            }
+        });
+    </script>
+</body>
+</html>

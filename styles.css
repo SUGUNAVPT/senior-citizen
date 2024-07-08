@@ -1,0 +1,6 @@
+
+body {
+    background-image: url('https://www.shutterstock.com/image-vector/illustration-stickman-senior-citizens-260nw-127698062.jpg'); /* Replace 'background.jpg' with the path to your image */
+    background-size: cover; /* This makes the image cover the entire background */
+    background-position: center; /* This centers the background image */
+}
